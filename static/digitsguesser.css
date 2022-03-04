@@ -1,0 +1,41 @@
+.bottone{
+    width: 80px;
+}
+span{
+    text-align: center;
+}
+
+canvas {
+    margin-top: 10px;
+    cursor: crosshair;
+    border: 2px solid #000000;
+}
+
+.inner {
+  display: table;
+  margin: 0 auto;
+}
+
+body{
+    overflow: hidden;
+}
+
+.output{
+    margin-top: 15px !important;
+    width: 700px !important;
+    text-align: center !important;
+}
+
+hr{
+margin-left: auto !important;
+            margin-right: auto !important;;
+            margin-top: 20px !important;;
+            margin-bottom: 15px !important;;
+            border: 0px !important;;
+            border: 0 !important;;
+            height: 6px !important;;
+            background-image: -webkit-linear-gradient(left, rgba(206, 97, 54, 0), rgba(206, 97, 54, 0.75), rgba(206, 97, 54, 0)) !important;
+            background-image: -moz-linear-gradient(left, rgba(206, 97, 54, 0), rgba(206, 97, 54, 0.75), rgba(206, 97, 54, 0)) !important;
+            background-image: -ms-linear-gradient(left, rgba(206, 97, 54, 0), rgba(206, 97, 54, 0.75), rgba(206, 97, 54, 0)) !important;
+            background-image: -o-linear-gradient(left, rgba(206, 97, 54, 0), rgba(206, 97, 54, 0.75), rgba(206, 97, 54, 0)) !important;
+}

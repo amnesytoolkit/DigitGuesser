@@ -1,0 +1,5 @@
+static/*.jpg
+mnist.model
+*idea*
+*cache*
+*.png
