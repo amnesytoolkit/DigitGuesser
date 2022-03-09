@@ -44,7 +44,7 @@
 
         <hr>    
         <div class="centered">
-            <canvas id="canvas" width="700" height="500"></canvas>
+            <canvas id="canvas" width="500" height="500"></canvas>
             <br>
         </div>
         <div class="centered">
@@ -57,8 +57,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script type="text/javascript">
-            $(".centered").css("margin-left", ($(document).width()-700)/2  + "px");
-            $(".bottoni_centrati").css("padding-left", 270 + "px");
+            $(".centered").css("margin-left", ($(document).width()-500)/2  + "px");
+            $(".bottoni_centrati").css("padding-left", 170 + "px");
             //Canvas
             var canvas = document.getElementById('canvas');
             var ctx = canvas.getContext('2d');
@@ -92,10 +92,10 @@
                     if(tooltype=='draw') {
                         ctx.globalCompositeOperation = 'source-over';
                         ctx.strokeStyle = 'black';
-                        ctx.lineWidth = 15;
+                        ctx.lineWidth = 30;
                     } else {
                         ctx.globalCompositeOperation = 'destination-out';
-                        ctx.lineWidth = 15;
+                        ctx.lineWidth = 30;
                     }
                     ctx.moveTo(last_mousex,last_mousey);
                     ctx.lineTo(mousex,mousey);
@@ -149,8 +149,8 @@
             $(document).ready(function(){
                 $(window).bind('mousewheel DOMMouseScroll', function(){
                    ctx = canvas.getContext('2d');
-                   $(".centered").css("margin-left", ($(document).width()-700)/2);
-                   $(".bottoni_centrati").css("padding-left", 270);
+                   $(".centered").css("margin-left", ($(document).width()-500)/2);
+                   $(".bottoni_centrati").css("padding-left", 170);
                    createCanvas();
                 });
             });

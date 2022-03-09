@@ -3,3 +3,4 @@ mnist.model
 *idea*
 *cache*
 *.png
+/datasets/data/*
