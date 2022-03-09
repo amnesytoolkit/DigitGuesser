@@ -12,7 +12,10 @@ app = Flask(__name__)
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.jpeg']
 app.config['SECRET_KEY'] = "hiboomer"
 
-labels = ['7', '3', 'k', 'S', 'v', 'T', 'm', 'Q', '9', 'a', 'f', 'U', '1', 'J', 'c', '0', 'j', 's', 'l', 'd', 'I', 'b', 'w', 'r', 'W', 'X', 'C', 'p', '2', '5', 'x', 'n', 'e', '4', 'E', 'V', 'D', 't', 'h', 'Y', 'M', 'Z', '6', 'G', '8', 'K', 'q', 'o', 'g', 'A', 'H', 'O', 'R', 'u', 'Img', 'i', 'P', 'y', 'z', 'F', 'N', 'B', 'L']
+labels = ['7', '3', 'k', 'S', 'v', 'T', 'm', 'Q', '9', 'a', 'f', 'U', '1', 'J', 'c', '0', 'j', 's', 'l', 'd',
+          'I', 'b', 'w', 'r', 'W', 'X', 'C', 'p', '2', '5', 'x', 'n', 'e', '4', 'E', 'V', 'D', 't', 'h', 'Y',
+          'M', 'Z', '6', 'G', '8', 'K', 'q', 'o', 'g', 'A', 'H', 'O', 'R', 'u', 'Img', 'i', 'P', 'y', 'z',
+          'F', 'N', 'B', 'L']
 def elaborate(imagefile):
     session = uuid.uuid4()
     path = f"./static/images/{session}.png"
@@ -69,14 +72,14 @@ def endpoint():
                 # elabora l'immagine
                 digit, prob = elaborate(encoded_file)
                 print(digit, " ", prob)
-                return jsonify({"status_code": 200, "digit_guessed": str(digit)})
+                return jsonify({"status_code": 200, "digit_guessed": str(digit), "probability": str(prob)})
             else:
                 return jsonify({"status_code": 400, "error": 'File not supported'})
         elif imagefile:
             if imagefile.filename[str(imagefile.filename).rfind("."):] in app.config["UPLOAD_EXTENSIONS"]:
                 digit, prob = elaborate(imagefile)
                 print(digit, " ", prob)
-                return jsonify({"status_code": 200, "digit_guessed": str(digit)})
+                return jsonify({"status_code": 200, "digit_guessed": str(digit), "probability": str(prob)})
         else:
             raise ValueError
     except Exception as e:

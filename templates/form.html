@@ -134,7 +134,7 @@
                             }
                             else{
                             let divs= $("#output");
-                                document.getElementById("output").innerHTML = 'You entered the digit <code>' + data.digit_guessed + '</code>';
+                                document.getElementById("output").innerHTML = 'You entered the digit <code>' + data.digit_guessed + '</code>. <br>' + parseFloat(data.probability)*100 + '% of probability.';
                                 divs.append = 'ffffffffffffffffffffffffff';
                                 divs.removeClass("alert-info").addClass("alert-success");
                             }
