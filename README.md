@@ -1,5 +1,5 @@
 # DigitGuesser
-Draw a digit and the AI will try to recognise it. 
+Draw a digit and the AI will try to recognise it. Made by Kabir Paolo Singh Bertolani (amnesy) && Luca Bertocchi
 
 Note: Trained with MNIST data - you should try to train the AI with your own data
 
