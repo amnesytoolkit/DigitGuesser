@@ -26,16 +26,14 @@ dataset_directory_name = "augmented_data/"
 labels = []
 os.chdir("./datasets/" + dataset_directory_name)
 for dir in os.listdir():
-    labels = os.listdir("/home/amnesy/Desktop/sharedWAll/Scuola/" +\
-               "stage-2021/DigitGuesser/datasets/" + dataset_directory_name)
+    labels = os.listdir(original_dir + "/datasets/" + dataset_directory_name)
 labels.sort()
 
 MIN_VALUE = 50
 for dir in labels:
     os.chdir(dir)
     for file in os.listdir():
-        path = "/home/amnesy/Desktop/sharedWAll/Scuola/stage-2021/" \
-               "DigitGuesser/datasets/" + dataset_directory_name + dir + "/" + file
+        path = original_dir + "/datasets/" + dataset_directory_name + dir + "/" + file
         data = cv2.imread(path)
         grey = cv2.cvtColor(data.copy(), cv2.COLOR_BGR2GRAY)
         a, thresh = cv2.threshold(grey, MIN_VALUE, 1, cv2.THRESH_BINARY)

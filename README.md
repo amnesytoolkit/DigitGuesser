@@ -1,7 +1,7 @@
 # DigitGuesser
 Draw a digit and the AI will try to recognise it. Made by Kabir Paolo Singh Bertolani (amnesy) && Luca Bertocchi
 
-Note: Trained with MNIST data - you should try to train the AI with your own data
+Note: Trained with MNIST data (and/or data from other sources) - you should try to train the AI with your own data
 
 Instruction to deploy this project:
 
@@ -10,5 +10,4 @@ Instruction to deploy this project:
          
 Note: Every digit created in the canvas and submitted will be saved in static/
 
-----> This project was just an exercise.
-         
+----> This project was just an exercise. 
