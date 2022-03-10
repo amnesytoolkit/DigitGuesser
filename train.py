@@ -1,4 +1,3 @@
-from keras.layers import BatchNormalization
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, MaxPooling2D, Flatten, Conv2D
 import tensorflow as tf
@@ -26,13 +25,13 @@ labels = []
 os.chdir("./datasets/data")
 for dir in os.listdir():
     labels = os.listdir("/home/amnesy/Desktop/sharedWAll/Scuola/" +\
-               "stage-2021/beat-the-ai-1/datasets/data/")
+               "stage-2021/beat-the-ai-1/datasets/augmented_data/")
 
 for dir in os.listdir():
     os.chdir(dir)
     for file in os.listdir():
         path = "/home/amnesy/Desktop/sharedWAll/Scuola/" \
-               "stage-2021/beat-the-ai-1/datasets/data/" + \
+               "stage-2021/beat-the-ai-1/datasets/augmented_data/" + \
                dir + "/" + file
         data = cv2.imread(path)
         grey = cv2.cvtColor(data.copy(), cv2.COLOR_BGR2GRAY)
@@ -46,14 +45,6 @@ for dir in os.listdir():
             eval_data.append(resized_digit)
             eval_label.append(labels.index(dir))
     os.chdir("../")
-
-
-
-datagen = ImageDataGenerator(
-        rotation_range=15,
-        zoom_range=0.15,
-        width_shift_range=0.15,
-        height_shift_range=0.15)
 
 print("train_data: " + str(len(train_data)))
 print("eval_data: " + str(len(eval_data)))
