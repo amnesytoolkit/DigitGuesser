@@ -11,13 +11,16 @@ import pickle, secrets
 app = Flask(__name__)
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.jpeg']
 app.config['SECRET_KEY'] = secrets.token_hex(32)
-
-labels = ['7', '3', 'S', 'T', 'Q', '9', 'U', '1', 'J', '0',
-          'I', 'W', 'X', 'C', '2', '5', '4', 'E', 'V', 'D',
-          'Y', 'M', 'Z', '6', 'G', '8', 'K', 'A', 'H', 'O',
-          'R', 'P', 'F', 'N', 'B', 'L']
+model = tf.keras.models.load_model("mnist.model")
+labels = ['0', '1', '2', '3', '4', '5', '6', '7',
+          '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
+          'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+          'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+          'W', 'X', 'Y', 'Z']
 
 def elaborate(imagefile):
+    global model
+    global labels
     session = uuid.uuid4()
     path = f"./static/images/{session}.png"
     with open(path, "wb") as f:
@@ -42,7 +45,6 @@ def elaborate(imagefile):
     # preprocessed_digits.append(padded_digit)
 
     # inp = np.array(preprocessed_digits)
-    model = tf.keras.models.load_model("mnist.model")
     # for digit in preprocessed_digits:
     data = resized_digit.reshape(1, 28, 28, 1)
     prob = model.predict([data])

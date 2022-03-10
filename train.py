@@ -21,24 +21,27 @@ train_label = []
 eval_data = []
 eval_label = []
 
+dataset_directory_name = "augmented_data/"
+
 labels = []
-os.chdir("./datasets/data")
+os.chdir("./datasets/" + dataset_directory_name)
 for dir in os.listdir():
     labels = os.listdir("/home/amnesy/Desktop/sharedWAll/Scuola/" +\
-               "stage-2021/beat-the-ai-1/datasets/augmented_data/")
+               "stage-2021/DigitGuesser/datasets/" + dataset_directory_name)
+labels.sort()
 
-for dir in os.listdir():
+MIN_VALUE = 50
+for dir in labels:
     os.chdir(dir)
     for file in os.listdir():
-        path = "/home/amnesy/Desktop/sharedWAll/Scuola/" \
-               "stage-2021/beat-the-ai-1/datasets/augmented_data/" + \
-               dir + "/" + file
+        path = "/home/amnesy/Desktop/sharedWAll/Scuola/stage-2021/" \
+               "DigitGuesser/datasets/" + dataset_directory_name + dir + "/" + file
         data = cv2.imread(path)
         grey = cv2.cvtColor(data.copy(), cv2.COLOR_BGR2GRAY)
-        a, thresh = cv2.threshold(grey, 70, 1, cv2.THRESH_BINARY_INV)
+        a, thresh = cv2.threshold(grey, MIN_VALUE, 1, cv2.THRESH_BINARY)
         resized_digit = cv2.resize(thresh, (28, 28))
 
-        if random.randint(0, 3):
+        if random.randint(0, 4):
             train_data.append(resized_digit)
             train_label.append(labels.index(dir))
         else:
