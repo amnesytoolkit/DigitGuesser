@@ -6,16 +6,17 @@ from flask import Flask, render_template, request ,jsonify
 import tensorflow as tf
 import base64, uuid
 import numpy as np
-import pickle
+import pickle, secrets
 
 app = Flask(__name__)
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.jpeg']
-app.config['SECRET_KEY'] = "hiboomer"
+app.config['SECRET_KEY'] = secrets.token_hex(32)
 
-labels = ['7', '3', 'k', 'S', 'v', 'T', 'm', 'Q', '9', 'a', 'f', 'U', '1', 'J', 'c', '0', 'j', 's', 'l', 'd',
-          'I', 'b', 'w', 'r', 'W', 'X', 'C', 'p', '2', '5', 'x', 'n', 'e', '4', 'E', 'V', 'D', 't', 'h', 'Y',
-          'M', 'Z', '6', 'G', '8', 'K', 'q', 'o', 'g', 'A', 'H', 'O', 'R', 'u', 'Img', 'i', 'P', 'y', 'z',
-          'F', 'N', 'B', 'L']
+labels = ['7', '3', 'S', 'T', 'Q', '9', 'U', '1', 'J', '0',
+          'I', 'W', 'X', 'C', '2', '5', '4', 'E', 'V', 'D',
+          'Y', 'M', 'Z', '6', 'G', '8', 'K', 'A', 'H', 'O',
+          'R', 'P', 'F', 'N', 'B', 'L']
+
 def elaborate(imagefile):
     session = uuid.uuid4()
     path = f"./static/images/{session}.png"

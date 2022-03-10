@@ -4,3 +4,5 @@ mnist.model
 *cache*
 *.png
 /datasets/data/*
+*train_data_temp*
+*eval_data_temp*
