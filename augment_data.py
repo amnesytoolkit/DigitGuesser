@@ -13,13 +13,15 @@ os.chdir("./data")
 data_dir = os.getcwd()
 
 moved_files = []
-images_per_class = 7 # il giorno del compleanno di ali
+images_per_class = 15
 
 # move all dirs in dataset
 for file in os.listdir():
         shutil.move(file, "../")
         moved_files.append(file)
 
+if not os.path.exists(super_dir + '/datasets/augmented_data/'):
+        os.mkdir(super_dir + '/datasets/augmented_data/')
 
 for file in moved_files:
         shutil.move(datasets_dir + "/" + file, "./")

@@ -39,7 +39,7 @@ for dir in labels:
         a, thresh = cv2.threshold(grey, MIN_VALUE, 1, cv2.THRESH_BINARY)
         resized_digit = cv2.resize(thresh, (28, 28))
 
-        if random.randint(0, 4):
+        if random.randint(0, 5):
             train_data.append(resized_digit)
             train_label.append(labels.index(dir))
         else:

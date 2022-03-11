@@ -12,6 +12,7 @@ app = Flask(__name__)
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.jpeg']
 app.config['SECRET_KEY'] = secrets.token_hex(32)
 model = tf.keras.models.load_model("mnist.model")
+
 labels = ['0', '1', '2', '3', '4', '5', '6', '7',
           '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
           'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',

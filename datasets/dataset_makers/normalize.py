@@ -3,6 +3,7 @@ import shutil
 
 # dataset maker for https://www.kaggle.com/dhruvildave/english-handwritten-characters-dataset
 
+os.chdir("../data/")
 with open('english.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     for row in csv_reader:
@@ -12,3 +13,6 @@ with open('english.csv') as csv_file:
         if not os.path.exists(row[1]):
             os.makedirs(row[1])
         shutil.move("./" + row[0], "./" + row[1])
+
+os.remove('english.csv')
+shutil.rmtree('./Img')

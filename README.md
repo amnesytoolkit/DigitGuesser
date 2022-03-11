@@ -10,4 +10,16 @@ Instruction to deploy this project:
          
 Note: Every digit created in the canvas and submitted will be saved in static/
 
-----> This project was just an exercise. 
+Steps To replicate the model (88% accuracy):
+- Download the dataset from [Kaggle](https://www.kaggle.com/dhruvildave/english-handwritten-characters-dataset)
+- Extract and put all the data in the dataset folder
+- Rename the extracted folder "archive" to "data" and delete the old zip archive
+- Run dataset_makers/normalize.py
+- Delete (If the script is not fully working) the folders "datasets/data/Img" and the file english.csv
+- I removed (for training purposes) all the folders of lowercase letters, so this model will only work with 36 characters. To change this, change the number of neurons in the final layer of the train.py file and adjust the label list in the main.py file.
+- You should have 36 folders in datasets/data
+- Run elaborate_white_images.py
+- Run augment_data.py
+- Run train.py
+
+----> This project was just an exercise.
